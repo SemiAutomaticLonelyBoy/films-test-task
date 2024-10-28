@@ -42,6 +42,7 @@ fun CustomSnackBar(
                     Text(
                         text = actionText,
                         color = MaterialTheme.colorScheme.secondary,
+                        style = MaterialTheme.typography.displaySmall,
                     )
                 }
             }
@@ -50,6 +51,7 @@ fun CustomSnackBar(
         Text(
             text = message,
             color = MaterialTheme.colorScheme.onPrimary,
+            style = MaterialTheme.typography.labelMedium,
         )
     }
 }
