@@ -1,5 +1,6 @@
 package com.example.filmstest.presentation.ui.components
 
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Snackbar
@@ -9,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 
 data class CustomSnackBarVisuals(
@@ -30,6 +32,7 @@ fun CustomSnackBar(
 ) {
     Snackbar(
         modifier = modifier
+            .height(56.dp)
             .padding(
                 start = 8.dp,
                 end = 8.dp,
@@ -43,6 +46,8 @@ fun CustomSnackBar(
                         text = actionText,
                         color = MaterialTheme.colorScheme.secondary,
                         style = MaterialTheme.typography.displaySmall,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
                     )
                 }
             }
@@ -52,6 +57,8 @@ fun CustomSnackBar(
             text = message,
             color = MaterialTheme.colorScheme.onPrimary,
             style = MaterialTheme.typography.labelMedium,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
         )
     }
 }

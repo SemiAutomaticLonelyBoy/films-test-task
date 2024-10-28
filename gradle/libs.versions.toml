@@ -15,7 +15,7 @@ kotlinx-serialization = "1.6.3"
 retrofitVersion = "2.11.0"
 loggingInterceptor = "4.10.0"
 okhttp = "4.11.0"
-composeCoil = "3.0.0-alpha06"
+composeCoil = "3.0.0-rc01"
 kotlinx-collectionsImmutable = "0.3.7"
 ksp = "2.0.10-1.0.24"
 
