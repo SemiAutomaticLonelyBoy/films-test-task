@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FilmsTest</string>
+    <string name="films_list_top_bar_title">Фильмы</string>
+    <string name="films_list_genres">Жанры</string>
+    <string name="films_list_films">Фильмы</string>
+    <string name="snackbar_message">Ошибка подключения сети</string>
+    <string name="snackbar_text_buton">ПОВТОРИТЬ</string>
+    <string name="film_info_year">год</string>
+</resources>

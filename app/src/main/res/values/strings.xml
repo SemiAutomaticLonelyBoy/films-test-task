@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FilmsTest</string>
+    <string name="films_list_top_bar_title">Films</string>
+    <string name="films_list_genres">Genres</string>
+    <string name="films_list_films">Films</string>
+    <string name="snackbar_message">Network connection error</string>
+    <string name="snackbar_text_buton">REPEAT</string>
+    <string name="film_info_year">year</string>
+    <string name="film_info_kinopoisk" translatable="false">КиноПоиск</string>
+</resources>
