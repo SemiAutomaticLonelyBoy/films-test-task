@@ -11,7 +11,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import coil3.ImageLoader
 import coil3.PlatformContext
-import coil3.annotation.ExperimentalCoilApi
 import coil3.compose.setSingletonImageLoaderFactory
 import coil3.memory.MemoryCache
 import coil3.request.crossfade
@@ -22,7 +21,6 @@ import com.example.filmstest.navigation.Routes
 import com.example.filmstest.presentation.ui.features.filmInfo.FilmInfoScreen
 import com.example.filmstest.presentation.ui.features.filmsList.FilmsListScreen
 import com.example.filmstest.presentation.ui.theme.FilmsTestTheme
-import com.example.filmstest.navigation.NavControllerStorage
 import kotlin.reflect.typeOf
 
 class MainActivity : ComponentActivity() {
@@ -34,19 +32,20 @@ class MainActivity : ComponentActivity() {
                 SetupImageLoader(enableDebugLogs = true)
                 val navController = rememberNavController()
 
-                NavControllerStorage.setNavController(navController)
-
                 NavHost(
                     navController = navController,
                     startDestination = Routes.FilmsList,
                 ) {
-                    composable<Routes.FilmsList> { FilmsListScreen() }
+                    composable<Routes.FilmsList> { FilmsListScreen(
+                        navController = navController,
+                    ) }
                     composable<Routes.FilmInfo>(
                         typeMap = mapOf(typeOf<FilmEntity>() to FilmType)
                     ) { backStackEntry ->
                         val film = backStackEntry.toRoute<Routes.FilmInfo>()
                         FilmInfoScreen(
                             film = film.film,
+                            navController = navController,
                         )
                     }
                 }
@@ -55,7 +54,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@OptIn(ExperimentalCoilApi::class)
 @Composable
 private fun SetupImageLoader(enableDebugLogs: Boolean) {
     setSingletonImageLoaderFactory { context ->

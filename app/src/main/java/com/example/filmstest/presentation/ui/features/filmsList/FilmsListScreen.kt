@@ -11,21 +11,21 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavController
 import com.example.filmstest.R
 import com.example.filmstest.navigation.Routes
-import com.example.filmstest.presentation.ui.components.CustomSnackBarVisuals
 import com.example.filmstest.presentation.ui.components.CustomSnackBar
+import com.example.filmstest.presentation.ui.components.CustomSnackBarVisuals
 import com.example.filmstest.presentation.ui.components.CustomTopBar
-import com.example.filmstest.navigation.NavControllerStorage
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun FilmsListScreen() {
+fun FilmsListScreen(
+    navController: NavController,
+) {
     val viewModel: FilmsListViewModel = koinViewModel()
 
     val snackBarHostState = remember { SnackbarHostState() }
-
-    val navController = NavControllerStorage.getNavController()
 
     LaunchedEffect(Unit) {
         viewModel.action.collect { action ->

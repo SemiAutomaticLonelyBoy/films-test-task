@@ -11,23 +11,23 @@ data class FilmsResponse(
 
 @Serializable
 data class FilmItem (
-    @SerialName("id") val id: Int,
-    @SerialName("localized_name") val localizedName: String,
-    @SerialName("name") val name: String,
-    @SerialName("year") val year: Int,
+    @SerialName("id") val id: Int? = null,
+    @SerialName("localized_name") val localizedName: String? = null,
+    @SerialName("name") val name: String? = null,
+    @SerialName("year") val year: Int? = null,
     @SerialName("rating") val rating: Double? = null,
     @SerialName("image_url") val imageUrl: String? = null,
     @SerialName("description") val description: String? = null,
-    @SerialName("genres") val genres: List<String>,
+    @SerialName("genres") val genres: List<String>? = null,
 )
 
 fun FilmItem.toEntity() = FilmEntity(
-    id = id,
-    localizedName = localizedName,
-    name = name,
-    year = year,
+    id = requireNotNull(id),
+    localizedName = requireNotNull(localizedName),
+    name = requireNotNull(name),
+    year = requireNotNull(year),
     rating = rating,
     imageUrl = imageUrl,
     description = description,
-    genres = genres,
+    genres = requireNotNull(genres),
 )
